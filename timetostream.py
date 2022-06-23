@@ -2,6 +2,8 @@
 
 # A simple timer that creates a text file to link to your stream software to automatically generate a countdown to the stream start.
 
+# For OBS: "Sources" > "Add" > "Text" > Enable "Read from file" > Browse "Text File" to timetostream.txt in TimeToStream.py path
+
 import time
   
 def streamtimer(t):
@@ -16,9 +18,12 @@ def streamtimer(t):
         t -= 1
       
     print('Ready')
-  
+    f = open("timetostream.txt", "w")
+    f.write("")
+    f.close()
+    
 # input time
-t = input("Enter the time in minutes: ")
+t = input("How many minutes before the broadcast starts? ")
   
 # call
 streamtimer(int(t))
